@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Građevinski radovi Bakar i Rijeka | Duspara d.o.o.</title>
+<meta name="description" content="Visokogradnja i niskogradnja u Bakru, Rijeci i Primorju. Duspara d.o.o. radi od 1999. Nazovite za procjenu.">
+<link rel="canonical" href="https://duspara.hr/">
+<meta name="theme-color" content="#0E1F45">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hr_HR">
+<meta property="og:url" content="https://duspara.hr/">
+<meta property="og:site_name" content="Duspara d.o.o.">
+<meta property="og:title" content="Građevinski radovi Bakar i Rijeka | Duspara d.o.o.">
+<meta property="og:description" content="Visokogradnja i niskogradnja u Bakru i Primorju. Od 1999.">
+<meta property="og:image" content="https://duspara.hr/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#0E1F45; --navy-700:#1A3D8A; --blue-500:#2A62C5;
+  --mist:#EDF1F8; --paper:#fff; --amber:#E8A33D;
+  --rule:rgba(14,31,69,.14); --rule-d:rgba(255,255,255,.18);
+  --wrap:1120px; --gut:24px; --spine:56px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.68;color:var(--navy-900);background:var(--paper);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:Archivo,Helvetica,Arial,sans-serif;font-weight:700;
+  line-height:1.02;letter-spacing:-.022em;margin:0}
+h1{font-size:clamp(2.3rem,6.2vw,4.15rem)}
+h2{font-size:clamp(1.75rem,3.9vw,2.65rem)}
+p{margin:0 0 1.05em}
+p:last-child{margin-bottom:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+
+.sec{position:relative;padding:88px 0}
+.sec--dark{background:var(--navy-900);color:#fff}
+.sec--mist{background:var(--mist)}
+.spine{position:absolute;left:var(--gut);top:88px;bottom:88px;width:1px;
+  background:var(--rule);display:none;transform-origin:top;
+  transform:scaleY(0);transition:transform .75s cubic-bezier(.22,.61,.36,1)}
+.spine.in{transform:scaleY(1)}
+.sec--dark .spine{background:var(--rule-d)}
+.spine span{position:absolute;left:50%;top:0;transform:translateX(-50%) rotate(180deg);
+  writing-mode:vertical-rl;font-family:Archivo,sans-serif;font-size:.7rem;
+  font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--navy-700);
+  opacity:.5;background:var(--paper);padding:10px 0;white-space:nowrap}
+.sec--mist .spine span{background:var(--mist)}
+.sec--dark .spine span{background:var(--navy-900);color:#fff;opacity:.45}
+@media(min-width:900px){.spine{display:block}.sec .wrap{padding-left:var(--spine)}}
+
+header{position:sticky;top:0;z-index:60;background:rgba(14,31,69,.96);
+  backdrop-filter:saturate(1.3) blur(8px);border-bottom:1px solid rgba(255,255,255,.1)}
+.bar{max-width:var(--wrap);margin:0 auto;padding:11px var(--gut);
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand img{height:38px;width:auto;transition:transform .25s;transform:rotate(-90deg)}
+.brand:hover img{transform:rotate(-90deg) translateY(-2px)}
+.brand b{font-family:Archivo,sans-serif;font-weight:700;font-size:1.1rem;
+  letter-spacing:.03em;text-transform:uppercase;display:block;line-height:1.1}
+.brand small{display:block;font-size:.62rem;letter-spacing:.24em;opacity:.6;margin-top:2px}
+nav{display:none;gap:26px}
+nav a{color:#fff;text-decoration:none;font-size:.8rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;opacity:.75;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .22s}
+nav a:hover{opacity:1}
+nav a:hover::after{transform:scaleX(1)}
+@media(min-width:980px){nav{display:flex}}
+
+/* ---------- gumbi ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:"Public Sans",sans-serif;font-weight:600;font-size:.96rem;letter-spacing:.005em;
+  text-decoration:none;padding:15px 26px;border-radius:7px;border:1px solid transparent;
+  cursor:pointer;overflow:hidden;isolation:isolate;
+  transition:transform .2s cubic-bezier(.22,.61,.36,1),box-shadow .22s,background .2s,border-color .2s}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .22s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0) 60%);
+  opacity:.9;pointer-events:none}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn--call{background:var(--amber);color:#3a2607;
+  box-shadow:0 2px 0 rgba(0,0,0,.12),0 6px 16px rgba(232,163,61,.28)}
+.btn--call:hover{background:#f2b258;box-shadow:0 3px 0 rgba(0,0,0,.12),0 12px 26px rgba(232,163,61,.42)}
+.btn--call:hover svg{transform:rotate(-12deg) scale(1.08)}
+.btn--wa{background:var(--blue-500);color:#fff;
+  box-shadow:0 2px 0 rgba(0,0,0,.16),0 6px 16px rgba(42,98,197,.3)}
+.btn--wa:hover{background:#3670d6;box-shadow:0 3px 0 rgba(0,0,0,.16),0 12px 26px rgba(42,98,197,.44)}
+.btn--wa:hover svg{transform:translateX(3px)}
+.btn--ghost{background:rgba(255,255,255,.04);color:#fff;border-color:rgba(255,255,255,.34)}
+.btn--ghost::before{opacity:.35}
+.btn--ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+.btn--ghost:hover svg{transform:translateX(3px)}
+.bar .btn{padding:11px 18px;font-size:.88rem;display:none;border-radius:6px}
+@media(min-width:700px){.bar .btn{display:inline-flex}}
+
+.hero{position:relative;overflow:hidden;background:var(--navy-900);color:#fff;padding:104px 0 96px}
+.hero::before{content:"";position:absolute;top:-38%;right:-22%;width:min(1000px,124vw);
+  aspect-ratio:1;pointer-events:none;
+  background:radial-gradient(circle,rgba(42,98,197,.5) 0%,rgba(42,98,197,.16) 42%,transparent 70%);
+  animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-4%,3%) scale(1.07)}}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;
+  background:linear-gradient(to bottom,transparent,rgba(0,0,0,.22));pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{font-family:Archivo,sans-serif;font-weight:600;font-size:.78rem;
+  letter-spacing:.34em;text-transform:uppercase;color:#8fb4f0;margin:0 0 22px}
+.hero h1{max-width:16ch}
+.lede{font-size:clamp(1.08rem,2.1vw,1.34rem);margin:26px 0 0;max-width:46ch;color:rgba(255,255,255,.92)}
+.lede .num{font-family:Archivo,sans-serif;font-weight:700;
+  font-variant-numeric:tabular-nums;color:#fff}
+.hero .sub{margin:12px 0 0;max-width:46ch;color:rgba(255,255,255,.64);font-size:1rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.place{display:flex;align-items:center;gap:9px;margin-top:38px;
+  font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+.place svg{width:15px;height:15px;flex:none;opacity:.8}
+
+.up{opacity:0;transform:translateY(16px);animation:up .55s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}
+.d4{animation-delay:.32s}.d5{animation-delay:.41s}.d6{animation-delay:.52s}
+
+.sec .lead{font-size:1.1rem;max-width:62ch;margin-top:22px}
+.two{display:grid;gap:34px;margin-top:28px}
+@media(min-width:820px){.two{grid-template-columns:1.15fr .85fr;gap:56px}}
+.aside{border-left:3px solid var(--blue-500);padding:4px 0 4px 20px;font-size:.99rem;align-self:start}
+.aside b{display:block;font-family:Archivo,sans-serif;font-size:1.15rem;
+  letter-spacing:-.01em;margin-bottom:6px}
+
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+.shot{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:7px;background:#dbe3f0;
+  border:0;padding:0;cursor:zoom-in;display:block;width:100%;
+  transition:transform .28s,box-shadow .28s}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.shot:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(14,31,69,.2)}
+.shot:hover img{transform:scale(1.06)}
+.shot::after{content:"";position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 0 0 rgba(14,31,69,0);transition:box-shadow .28s}
+.shot:hover::after{box-shadow:inset 0 0 44px 6px rgba(14,31,69,.3)}
+.shot:focus-visible{outline:3px solid var(--blue-500);outline-offset:3px}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:Archivo,sans-serif;font-size:.76rem;letter-spacing:.26em;
+  text-transform:uppercase;color:#7d92b5;background:#dbe3f0}
+
+.form{max-width:620px;margin-top:28px}
+.field{margin-bottom:17px}
+label{display:block;font-size:.74rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:9px;color:rgba(255,255,255,.74)}
+select,textarea{width:100%;font-family:"Public Sans",sans-serif;font-size:1rem;color:#fff;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.24);
+  border-radius:7px;padding:14px 15px;transition:border-color .18s,background .18s}
+select option{color:var(--navy-900);background:#fff}
+textarea{resize:vertical;min-height:96px}
+select:hover,textarea:hover{background:rgba(255,255,255,.1)}
+select:focus,textarea:focus{outline:2px solid var(--blue-500);outline-offset:1px;border-color:transparent}
+.hint{font-size:.86rem;color:rgba(255,255,255,.55);margin:14px 0 0;text-align:center}
+.btn--sm{padding:9px 16px;font-size:.82rem;border-radius:6px;gap:7px}
+.btn--sm svg{width:15px;height:15px}
+.hint .btn{margin-top:10px;display:inline-flex}
+
+.faq{margin-top:26px;max-width:78ch}
+.faq details{border-bottom:1px solid var(--rule);padding:4px 0}
+.faq summary{cursor:pointer;list-style:none;padding:18px 34px 18px 0;position:relative;
+  font-family:Archivo,sans-serif;font-size:1.1rem;font-weight:600;
+  letter-spacing:-.012em;transition:color .18s}
+.faq summary:hover{color:var(--blue-500)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;
+  border-right:2px solid var(--blue-500);border-bottom:2px solid var(--blue-500);
+  transform:translateY(-70%) rotate(45deg);transition:transform .22s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details[open] p{animation:up .3s ease forwards}
+.faq summary:focus-visible{outline:2px solid var(--blue-500);outline-offset:2px}
+.faq p{padding:0 0 20px;max-width:70ch;color:#33436b}
+
+.contact{display:grid;gap:30px;margin-top:26px}
+@media(min-width:760px){.contact{grid-template-columns:1fr 1fr}}
+.nap{font-style:normal;font-size:1.09rem;line-height:1.95}
+.nap a{color:#9dc0ff;text-decoration:none;font-weight:600}
+.nap a:hover{text-decoration:underline}
+
+footer{background:#08152f;color:rgba(255,255,255,.56);font-size:.85rem}
+.foot{max-width:var(--wrap);margin:0 auto;padding:38px var(--gut)}
+.foot-top{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
+.foot img{height:88px;width:auto;opacity:.88;transform:rotate(-90deg)}
+.impressum{line-height:1.9;min-width:240px}
+.impressum b{color:rgba(255,255,255,.86);display:block;margin-bottom:7px;
+  font-family:Archivo,sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.foot-bot{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.foot a{color:rgba(255,255,255,.72)}
+.priv{margin-top:24px;max-width:74ch;line-height:1.85}
+.priv b{color:rgba(255,255,255,.86);display:block;margin-bottom:7px;
+  font-family:Archivo,sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+
+.fab{position:fixed;right:20px;bottom:20px;z-index:70;width:58px;height:58px;
+  border-radius:50%;background:var(--amber);color:#3a2607;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 0 rgba(0,0,0,.14),0 10px 26px rgba(14,31,69,.34);text-decoration:none;
+  opacity:0;transform:scale(.85) translateY(8px);pointer-events:none;
+  transition:opacity .22s,transform .22s cubic-bezier(.22,.61,.36,1),box-shadow .2s}
+.fab.on{opacity:1;transform:scale(1) translateY(0);pointer-events:auto}
+.fab:hover{box-shadow:0 3px 0 rgba(0,0,0,.14),0 14px 32px rgba(232,163,61,.5)}
+.fab svg{width:25px;height:25px}
+
+.lb{position:fixed;inset:0;z-index:120;background:rgba(6,14,32,.94);
+  display:none;align-items:center;justify-content:center;padding:22px}
+.lb.on{display:flex;animation:fade .2s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.lb img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:4px}
+.lb button{position:absolute;top:16px;right:18px;width:44px;height:44px;
+  background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;
+  font-size:1.5rem;cursor:pointer;line-height:1}
+.lb button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+.rv{opacity:0;transform:translateY(16px);
+  transition:opacity .45s cubic-bezier(.22,.61,.36,1),transform .45s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;color:var(--navy-900);padding:10px 14px}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#glavno">Preskoči na sadržaj</a>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="#">
+      <img src="data:image/png;base64,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" alt="Duspara d.o.o. znak" width="111" height="96">
+      <span><b>Duspara</b><small>od 1999.</small></span>
+    </a>
+    <nav>
+      <a href="#o-nama">O nama</a><a href="#radovi">Radovi</a>
+      <a href="#upit">Upit</a><a href="#pitanja">Pitanja</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn--call" href="tel:+385911198278">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+      091 119 8278</a>
+  </div>
+</header>
+
+<main id="glavno">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow up d1">Visokogradnja i niskogradnja</p>
+    <h1 class="up d2">Građevinski radovi u Bakru i Primorju</h1>
+    <p class="lede up d3">Radimo od <span class="num" id="odKad" data-to="1999">1999</span>. Novogradnja, rekonstrukcije, adaptacije, betonski i zemljani radovi.</p>
+    <div class="cta up d5">
+      <a class="btn btn--call" href="tel:+385911198278">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+        Nazovi 091 119 8278</a>
+      <a class="btn btn--ghost" href="#upit">
+        Pošalji upit na WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <p class="place up d6">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      Nautička 13, Bakar</p>
+  </div>
+</section>
+
+<section class="sec" id="o-nama">
+  <div class="spine"><span>O nama</span></div>
+  <div class="wrap">
+    <h2 class="rv">Tvrtka iz Bakra,<br>na terenu od 1999.</h2>
+    <div class="two">
+      <div class="rv">
+        <p class="lead">Duspara d.o.o. posluje iz Bakra od 1999. godine. Tvrtku vodi <strong>Tadija Duspara</strong>.</p>
+        <p>Radimo visokogradnju i niskogradnju na području Bakra, Rijeke, Kostrene, Kraljevice, Čavla i šire Primorsko-goranske županije. Novogradnja, rekonstrukcije i adaptacije stambenih i poslovnih objekata, betonski i armiranobetonski radovi, zemljani radovi i iskopi, završni građevinski radovi i sanacije.</p>
+        <p>Kod visokogradnje radimo objekt od temelja do završnih radova, ili ulazimo u fazi koja vam treba. Kod niskogradnje su to iskopi, potporni zidovi, uređenje terena i pripremni radovi prije gradnje. Na terenu u Primorju se to dvoje najčešće preklapa, pa je praktično da isti izvođač pokriva oboje.</p>
+        <p>Radimo za privatne investitore i za tvrtke. Od manjih zahvata do cijelih objekata. Na teren izlazimo prije ponude, pogledamo stanje i dogovorimo opseg posla. Sve što vidite u galeriji ispod naši su radovi.</p>
+      </div>
+      <div class="aside rv">
+        <b>Područje rada</b>
+        <p>Bakar, Rijeka, Kostrena, Kraljevica, Čavle, Viškovo i okolica. Za veće poslove izlazimo i šire po Primorsko-goranskoj županiji.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--mist" id="radovi">
+  <div class="spine"><span>Radovi</span></div>
+  <div class="wrap">
+    <h2 class="rv">Naši radovi</h2>
+    <p class="lead rv">Pregled nekih naših radova. Ako tražite nešto slično, nazovite.</p>
+    <div class="grid" id="galerija"></div>
+  </div>
+</section>
+
+<section class="sec sec--dark" id="upit">
+  <div class="spine"><span>Upit</span></div>
+  <div class="wrap">
+    <h2 class="rv">Pošaljite upit</h2>
+    <p class="lead rv" style="color:rgba(255,255,255,.82)">Odaberite što vas zanima i poruka se otvara u WhatsAppu, već napisana. Dopišite lokaciju i kvadraturu ako znate.</p>
+    <div class="form rv">
+      <div class="field">
+        <label for="vrsta">Što vas zanima</label>
+        <select id="vrsta">
+          <option value="Pozdrav, zanima me novogradnja. ">Novogradnja</option>
+          <option value="Pozdrav, zanima me rekonstrukcija/adaptacija. ">Rekonstrukcija ili adaptacija</option>
+          <option value="Pozdrav, trebam betonske radove. ">Betonski radovi</option>
+          <option value="Pozdrav, trebam zemljane radove/iskop. ">Zemljani radovi i iskop</option>
+          <option value="Pozdrav, imam upit. ">Nešto drugo</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="opis">Kratko opišite (nije obavezno)</label>
+        <textarea id="opis" placeholder="Npr. lokacija i kvadratura"></textarea>
+      </div>
+      <button class="btn btn--wa" id="wa" type="button" style="width:100%">
+        Pošalji upit
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="hint">Ili nazovite direktno</p>
+      <a class="btn btn--call btn--sm" href="tel:+385911198278">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+        091 119 8278</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pitanja">
+  <div class="spine"><span>Pitanja</span></div>
+  <div class="wrap">
+    <h2 class="rv">Česta pitanja</h2>
+    <div class="faq rv">
+      <details open>
+        <summary>Na kojem području radite?</summary>
+        <p>Bakar, Rijeka, Kostrena, Kraljevica, Čavle, Viškovo i okolica. Za veće poslove izlazimo i šire po Primorsko-goranskoj županiji.</p>
+      </details>
+      <details>
+        <summary>Radite li i visokogradnju i niskogradnju?</summary>
+        <p>Da, oboje. Stambeni i poslovni objekti, ali i zemljani radovi, iskopi i potporni zidovi. Na istom gradilištu često treba i jedno i drugo.</p>
+      </details>
+      <details>
+        <summary>Izlazite li na teren prije ponude?</summary>
+        <p>Da. Dogovorimo termin, dođemo pogledati i tek onda pričamo o opsegu i cijeni. Kod rekonstrukcija se dosta toga vidi tek na licu mjesta.</p>
+      </details>
+      <details>
+        <summary>Radite li i manje poslove?</summary>
+        <p>Da. Ne samo cijele objekte, nego i adaptacije, betonske ploče, potporne zidove ili iskop.</p>
+      </details>
+      <details>
+        <summary>Kako vas najbrže dobiti?</summary>
+        <p>Telefonom na 091 119 8278 ili preko WhatsAppa putem obrasca iznad. Ako se ne javimo odmah, vjerojatno smo na gradilištu.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--dark" id="kontakt">
+  <div class="spine"><span>Kontakt</span></div>
+  <div class="wrap">
+    <h2 class="rv">Kontakt</h2>
+    <div class="contact">
+      <address class="nap rv">
+        <strong>Duspara d.o.o.</strong><br>
+        Nautička 13, 51222 Bakar<br>
+        <a href="tel:+385911198278">091 119 8278</a><br>
+        <a href="mailto:dusparagrad@gmail.com">dusparagrad@gmail.com</a><br>
+        <span style="color:rgba(255,255,255,.6)">Radimo od 1999.</span>
+      </address>
+      <div class="rv">
+        <div class="cta" style="margin-top:0">
+          <a class="btn btn--call" href="tel:+385911198278">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+            Nazovi 091 119 8278</a>
+          <a class="btn btn--ghost" href="#upit">Pošalji upit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <img src="data:image/png;base64,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" alt="Duspara d.o.o. visokogradnja i niskogradnja" width="148" height="180">
+      <div class="impressum">
+        <b>Podaci o društvu</b>
+        DUSPARA d.o.o.<br>
+        Nautička 13, 51222 Bakar<br>
+        OIB: 81971813285<br>
+        Član uprave: Tadija Duspara
+      </div>
+    </div>
+    <div class="priv">
+      <b>Pravila privatnosti</b>
+      Ova stranica ne postavlja kolačiće, ne koristi analitiku i ne prikuplja niti pohranjuje osobne podatke. Obrazac za upit ne šalje podatke na naš poslužitelj, nego otvara poruku u aplikaciji WhatsApp, pa se na nju primjenjuju pravila privatnosti te aplikacije. Ako nas kontaktirate telefonom, WhatsAppom ili e-poštom, vaše podatke koristimo isključivo za odgovor na upit i izradu ponude.
+    </div>
+    <div class="foot-bot">
+      <span>&copy; <span id="god"></span> Duspara d.o.o. &middot; Nautička 13, Bakar &middot; 091 119 8278</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="tel:+385911198278" aria-label="Nazovi Duspara d.o.o.">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Prikaz fotografije">
+  <button id="lbx" aria-label="Zatvori">&times;</button>
+  <img id="lbi" src="" alt="">
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"GeneralContractor","name":"Duspara d.o.o.","url":"https://duspara.hr/","image":"https://duspara.hr/og.jpg","telephone":"+385911198278","email":"dusparagrad@gmail.com","vatID":"HR81971813285","taxID":"81971813285","foundingDate":"1999-10-29","address":{"@type":"PostalAddress","streetAddress":"Nautička 13","addressLocality":"Bakar","postalCode":"51222","addressCountry":"HR"},"geo":{"@type":"GeoCoordinates","latitude":45.3053,"longitude":14.5372},"areaServed":["Bakar","Rijeka","Kostrena","Kraljevica","Čavle","Viškovo","Primorsko-goranska županija"],"knowsAbout":["visokogradnja","niskogradnja","novogradnja","rekonstrukcije","adaptacije","betonski radovi","zemljani radovi"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"16:00"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Na kojem području radite?","acceptedAnswer":{"@type":"Answer","text":"Bakar, Rijeka, Kostrena, Kraljevica, Čavle, Viškovo i okolica. Za veće poslove izlazimo i šire po Primorsko-goranskoj županiji."}},
+{"@type":"Question","name":"Radite li i visokogradnju i niskogradnju?","acceptedAnswer":{"@type":"Answer","text":"Da, oboje. Stambeni i poslovni objekti, ali i zemljani radovi, iskopi i potporni zidovi. Na istom gradilištu često treba i jedno i drugo."}},
+{"@type":"Question","name":"Izlazite li na teren prije ponude?","acceptedAnswer":{"@type":"Answer","text":"Da. Dogovorimo termin, dođemo pogledati i tek onda pričamo o opsegu i cijeni. Kod rekonstrukcija se dosta toga vidi tek na licu mjesta."}},
+{"@type":"Question","name":"Radite li i manje poslove?","acceptedAnswer":{"@type":"Answer","text":"Da. Ne samo cijele objekte, nego i adaptacije, betonske ploče, potporne zidove ili iskop."}},
+{"@type":"Question","name":"Kako vas najbrže dobiti?","acceptedAnswer":{"@type":"Answer","text":"Telefonom na 091 119 8278 ili preko WhatsAppa putem obrasca na stranici. Ako se ne javimo odmah, vjerojatno smo na gradilištu."}}]}
+</script>
+
+<script>
+/* GALERIJA - dodavanje slike je jedan redak u ovom nizu.
+   Datoteke stavi u isti folder kao index.html. */
+var SLIKE = [
+  {src:"radovi-1.jpg", alt:"Popločavanje dvorišta i prilaza"},
+  {src:"radovi-2.jpg", alt:"Uređenje dvorišta, popločavanje i vanjski kamin"},
+  {src:"radovi-3.jpg", alt:"Betoniranje konstrukcije"},
+  {src:"radovi-4.jpg", alt:"Visokogradnja, armiranobetonska konstrukcija"},
+  {src:"radovi-5.jpg", alt:"Građevinski radovi, oplata i armatura"},
+  {src:"radovi-6.jpg", alt:"Novogradnja, zidarski radovi"},
+  {src:"radovi-7.jpg", alt:"Betonski radovi i oplata"}
+];
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var g=document.getElementById('galerija');
+  if(g){SLIKE.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.className='shot'; b.type='button';
+    b.setAttribute('aria-label','Povećaj: '+s.alt);
+    var im=document.createElement('img');
+    im.src=s.src; im.alt=s.alt; im.loading='lazy'; im.width=800; im.height=600;
+    im.onerror=function(){ im.style.display='none';
+      var p=document.createElement('span'); p.className='ph';
+      p.textContent='Fotografija '+(i+1); b.appendChild(p); };
+    b.appendChild(im);
+    b.addEventListener('click',function(){ open(s); });
+    g.appendChild(b);
+  });}
+
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),
+      lbx=document.getElementById('lbx'),last=null;
+  function open(s){ if(!lb)return; last=document.activeElement;
+    lbi.src=s.src; lbi.alt=s.alt; lb.classList.add('on'); if(lbx)lbx.focus(); }
+  function close(){ if(!lb)return; lb.classList.remove('on'); lbi.src='';
+    if(last&&last.focus)last.focus(); }
+  if(lbx)lbx.addEventListener('click',close);
+  if(lb)lb.addEventListener('click',function(e){ if(e.target===lb)close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape')close(); });
+
+  /* brojanje godine u "Radimo od 1999." */
+  var n=document.getElementById('odKad');
+  if(n){
+    var to=parseInt(n.getAttribute('data-to'),10)||1999, from=to-26;
+    if(reduce){ n.textContent=to; }
+    else{
+      n.textContent=from;
+      setTimeout(function(){
+        var t0=null, dur=1150;
+        function step(t){
+          if(!t0)t0=t;
+          var p=Math.min((t-t0)/dur,1);
+          var e=1-Math.pow(1-p,3);
+          n.textContent=Math.round(from+(to-from)*e);
+          if(p<1)requestAnimationFrame(step); else n.textContent=to;
+        }
+        requestAnimationFrame(step);
+      },560);
+    }
+  }
+
+  var wa=document.getElementById('wa');
+  if(wa)wa.addEventListener('click',function(){
+    var v=document.getElementById('vrsta'),o=document.getElementById('opis');
+    var t=(v?v.value:'Pozdrav, imam upit. ')+((o&&o.value)?o.value.trim():'');
+    window.open('https://wa.me/385911198278?text='+encodeURIComponent(t),'_blank');
+  });
+
+  var fab=document.getElementById('fab'),upit=document.getElementById('upit'),uv=false;
+  if(upit&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){uv=e.isIntersecting;sync();});},
+      {threshold:.18}).observe(upit);
+  }
+  function sync(){ if(fab) fab.classList.toggle('on', window.scrollY>420 && !uv); }
+  window.addEventListener('scroll',sync,{passive:true}); sync();
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},
+      {threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv,.spine').forEach(function(el){io.observe(el);});
+  } else {
+    document.querySelectorAll('.rv,.spine').forEach(function(el){el.classList.add('in');});
+  }
+
+  var god=document.getElementById('god');
+  if(god)god.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
