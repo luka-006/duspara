@@ -116,6 +116,9 @@ nav a:hover::after{transform:scaleX(1)}
 .hero .wrap{position:relative;z-index:2}
 .eyebrow{font-family:Archivo,sans-serif;font-weight:600;font-size:.78rem;
   letter-spacing:.34em;text-transform:uppercase;color:#8fb4f0;margin:0 0 22px}
+.eyebrow-a,.eyebrow-b{display:inline-block;transition:color .45s ease,text-shadow .45s ease,transform .45s ease}
+.eyebrow-a.on,.eyebrow-b.on{color:#fff;text-shadow:0 0 22px rgba(143,180,240,.65);transform:translateY(-1px)}
+.eyebrow-sep{opacity:.45;margin:0 .15em}
 .hero h1{max-width:16ch}
 .lede{font-size:clamp(1.08rem,2.1vw,1.34rem);margin:26px 0 0;max-width:46ch;color:rgba(255,255,255,.92)}
 .lede .num{font-family:Archivo,sans-serif;font-weight:700;
@@ -126,8 +129,9 @@ nav a:hover::after{transform:scaleX(1)}
   font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.42)}
 .place svg{width:15px;height:15px;flex:none;opacity:.8}
 
-.up{opacity:0;transform:translateY(16px);animation:up .55s cubic-bezier(.22,.61,.36,1) forwards}
-@keyframes up{to{opacity:1;transform:none}}
+.up{opacity:0;transform:translateY(16px);animation:riseIn .55s cubic-bezier(.22,.61,.36,1) forwards}
+.up.done{opacity:1;transform:none;animation:none}
+@keyframes riseIn{to{opacity:1;transform:none}}
 .d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}
 .d4{animation-delay:.32s}.d5{animation-delay:.41s}.d6{animation-delay:.52s}
 
@@ -138,22 +142,51 @@ nav a:hover::after{transform:scaleX(1)}
 .aside b{display:block;font-family:Archivo,sans-serif;font-size:1.15rem;
   letter-spacing:-.01em;margin-bottom:6px}
 
-.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
-@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+/* ---------- galerija ---------- */
+.gal-wrap{position:relative;margin-top:30px;border-radius:12px;padding:clamp(16px,3vw,24px);
+  background:linear-gradient(145deg,#e4eaf4,#edf1f8 40%,#e8edf6);overflow:hidden}
+.gal-ambient{position:absolute;inset:-30%;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 18% 28%,rgba(42,98,197,.38),transparent 52%),
+    radial-gradient(circle at 82% 72%,rgba(232,163,61,.28),transparent 48%),
+    radial-gradient(circle at 55% 45%,rgba(26,61,138,.18),transparent 58%);
+  filter:blur(48px);animation:ambient 14s ease-in-out infinite alternate}
+@keyframes ambient{from{transform:translate(0,0) scale(1)}to{transform:translate(4%,-3%) scale(1.1)}}
+.gal-show,.gal-full{position:relative;z-index:1}
+.gal-hero{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;
+  background:#c8d4e8;cursor:zoom-in;box-shadow:0 8px 32px rgba(14,31,69,.14)}
+.gal-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.1s ease}
+.gal-hero img.on{opacity:1}
+.gal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.gal-row .shot{aspect-ratio:4/3;border-radius:7px;opacity:1;transform:none;animation:none!important}
+.btn--more{background:rgba(255,255,255,.55);border:1px solid rgba(14,31,69,.22);color:var(--navy-700);
+  padding:10px 22px;font-size:.82rem;letter-spacing:.04em;margin:16px auto 0;
+  display:flex;width:fit-content;border-radius:999px;backdrop-filter:blur(6px)}
+.btn--more:hover{background:rgba(255,255,255,.85);border-color:var(--navy-700);
+  box-shadow:0 6px 20px rgba(14,31,69,.12)}
+.btn--more svg{width:14px;height:14px;transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+.btn--more.open svg{transform:rotate(180deg)}
+.gal-full{display:grid;grid-template-rows:0fr;opacity:0;
+  transition:grid-template-rows .7s cubic-bezier(.22,.61,.36,1),opacity .45s ease,margin .7s ease;
+  margin-top:0}
+.gal-full.open{grid-template-rows:1fr;opacity:1;margin-top:20px}
+.gal-full-inner{overflow:hidden;min-height:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr);gap:12px}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(4,1fr)}}
 .shot{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:7px;background:#dbe3f0;
   border:0;padding:0;cursor:zoom-in;display:block;width:100%;
-  transition:transform .28s,box-shadow .28s}
+  transition:transform .28s,box-shadow .28s;opacity:0;transform:translateY(10px) scale(.98)}
+.gal-full.open .shot{animation:galIn .45s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes galIn{to{opacity:1;transform:none}}
 .shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
-.shot:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(14,31,69,.2)}
-.shot:hover img{transform:scale(1.06)}
+.shot:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(14,31,69,.18)}
+.shot:hover img{transform:scale(1.05)}
 .shot::after{content:"";position:absolute;inset:0;pointer-events:none;
   box-shadow:inset 0 0 0 0 rgba(14,31,69,0);transition:box-shadow .28s}
-.shot:hover::after{box-shadow:inset 0 0 44px 6px rgba(14,31,69,.3)}
+.shot:hover::after{box-shadow:inset 0 0 36px 4px rgba(14,31,69,.22)}
 .shot:focus-visible{outline:3px solid var(--blue-500);outline-offset:3px}
-.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:Archivo,sans-serif;font-size:.76rem;letter-spacing:.26em;
-  text-transform:uppercase;color:#7d92b5;background:#dbe3f0}
 
 .form{max-width:620px;margin-top:28px}
 .field{margin-bottom:17px}
@@ -182,7 +215,7 @@ select:focus,textarea:focus{outline:2px solid var(--blue-500);outline-offset:1px
   border-right:2px solid var(--blue-500);border-bottom:2px solid var(--blue-500);
   transform:translateY(-70%) rotate(45deg);transition:transform .22s}
 .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
-.faq details[open] p{animation:up .3s ease forwards}
+.faq details[open] p{animation:riseIn .3s ease forwards}
 .faq summary:focus-visible{outline:2px solid var(--blue-500);outline-offset:2px}
 .faq p{padding:0 0 20px;max-width:70ch;color:#33436b}
 
@@ -233,8 +266,9 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:200;background:#fff;color:var(--navy-900);padding:10px 14px}
 @media(prefers-reduced-motion:reduce){
-  *{animation-duration:.001s !important;transition-duration:.001s !important}
-  .rv{opacity:1;transform:none}
+  .hero::before,.gal-ambient{animation:none}
+  .rv,.up{opacity:1;transform:none;animation:none}
+  .gal-full.open .shot,.gal-row .shot{opacity:1;transform:none;animation:none}
 }
 </style>
 </head>
@@ -261,7 +295,11 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow up d1">Visokogradnja i niskogradnja</p>
+    <p class="eyebrow up d1" aria-label="Visokogradnja i niskogradnja">
+      <span class="eyebrow-a on" id="eyebrowA">Visokogradnja</span>
+      <span class="eyebrow-sep"> i </span>
+      <span class="eyebrow-b" id="eyebrowB">niskogradnja</span>
+    </p>
     <h1 class="up d2">Građevinski radovi u Bakru i Primorju</h1>
     <p class="lede up d3">Radimo od <span class="num" id="odKad" data-to="1999">1999</span>. Novogradnja, rekonstrukcije, adaptacije, betonski i zemljani radovi.</p>
     <div class="cta up d5">
@@ -302,7 +340,25 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
   <div class="wrap">
     <h2 class="rv">Naši radovi</h2>
     <p class="lead rv">Pregled nekih naših radova. Ako tražite nešto slično, nazovite.</p>
-    <div class="grid" id="galerija"></div>
+    <div class="gal-wrap rv">
+      <div class="gal-ambient" aria-hidden="true"></div>
+      <div class="gal-show">
+        <button class="gal-hero" id="galHero" type="button" aria-label="Povećaj fotografiju">
+          <img id="galA" src="radovi-1.jpg" alt="">
+          <img id="galB" alt="">
+        </button>
+        <div class="gal-row" id="galRow"></div>
+        <button class="btn btn--more" id="galOpen" type="button">
+          <span id="galOpenTxt">Pogledaj sve radove</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="gal-full" id="galFull">
+        <div class="gal-full-inner">
+          <div class="grid" id="galerija"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -439,37 +495,97 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 <script>
 /* GALERIJA - dodavanje slike je jedan redak u ovom nizu.
    Datoteke stavi u isti folder kao index.html. */
-var SLIKE = [
-  {src:"radovi-1.jpg", alt:"Popločavanje dvorišta i prilaza"},
-  {src:"radovi-2.jpg", alt:"Uređenje dvorišta, popločavanje i vanjski kamin"},
-  {src:"radovi-3.jpg", alt:"Betoniranje konstrukcije"},
-  {src:"radovi-4.jpg", alt:"Visokogradnja, armiranobetonska konstrukcija"},
-  {src:"radovi-5.jpg", alt:"Građevinski radovi, oplata i armatura"},
-  {src:"radovi-6.jpg", alt:"Novogradnja, zidarski radovi"},
-  {src:"radovi-7.jpg", alt:"Betonski radovi i oplata"}
-];
+var SLIKE = [];
+for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: ''});
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var g=document.getElementById('galerija');
-  if(g){SLIKE.forEach(function(s,i){
+  /* fallback ako CSS animacija ne krene */
+  document.querySelectorAll('.up').forEach(function(el){
+    el.addEventListener('animationend',function(){ el.classList.add('done'); });
+    setTimeout(function(){ if(getComputedStyle(el).opacity==='0') el.classList.add('done'); }, 1200);
+  });
+
+  /* eyebrow: naizmjenični naglasak */
+  var ebA=document.getElementById('eyebrowA'), ebB=document.getElementById('eyebrowB'), ebOn=true;
+  if(ebA&&ebB&&!reduce){
+    setInterval(function(){
+      ebOn=!ebOn;
+      ebA.classList.toggle('on', ebOn);
+      ebB.classList.toggle('on', !ebOn);
+    }, 2600);
+  }
+
+  function mkShot(s, delay, label){
     var b=document.createElement('button');
     b.className='shot'; b.type='button';
-    b.setAttribute('aria-label','Povećaj: '+s.alt);
+    if(delay!=null) b.style.animationDelay=(delay*.035)+'s';
+    b.setAttribute('aria-label', label || 'Povećaj fotografiju');
     var im=document.createElement('img');
     im.src=s.src; im.alt=s.alt; im.loading='lazy'; im.width=800; im.height=600;
-    im.onerror=function(){ im.style.display='none';
-      var p=document.createElement('span'); p.className='ph';
-      p.textContent='Fotografija '+(i+1); b.appendChild(p); };
     b.appendChild(im);
     b.addEventListener('click',function(){ open(s); });
-    g.appendChild(b);
-  });}
+    return b;
+  }
+
+  /* preview: 3 slike ispod hero */
+  var row=document.getElementById('galRow');
+  if(row){
+    for(var ti=1;ti<=3&&ti<SLIKE.length;ti++){
+      row.appendChild(mkShot(SLIKE[ti], null, 'Povećaj fotografiju'));
+    }
+  }
+
+  /* hero crossfade */
+  var heroIdx=0, heroActive=0, galA=document.getElementById('galA'), galB=document.getElementById('galB'),
+      heroBtn=document.getElementById('galHero'), heroTimer=null, heroShow=null;
+  var heroLayers=galA&&galB?[galA,galB]:[];
+  if(heroLayers.length){
+    galA.classList.add('on');
+    heroShow=function(i){
+      heroIdx=((i%SLIKE.length)+SLIKE.length)%SLIKE.length;
+      var next=1-heroActive, lay=heroLayers[next];
+      lay.src=SLIKE[heroIdx].src; lay.alt=SLIKE[heroIdx].alt;
+      lay.classList.add('on'); heroLayers[heroActive].classList.remove('on');
+      heroActive=next;
+    };
+    if(!reduce && SLIKE.length>1){
+      heroTimer=setInterval(function(){ heroShow(heroIdx+1); }, 4200);
+    }
+    if(heroBtn) heroBtn.addEventListener('click',function(){
+      open(SLIKE[heroIdx]);
+    });
+  }
+
+  /* puna galerija */
+  var g=document.getElementById('galerija'), full=document.getElementById('galFull'),
+      openBtn=document.getElementById('galOpen'), openTxt=document.getElementById('galOpenTxt'), fullOpen=false;
+  if(g){
+    SLIKE.forEach(function(s,i){
+      g.appendChild(mkShot(s, i, 'Povećaj fotografiju'));
+    });
+  }
+  if(openBtn&&full){
+    openBtn.addEventListener('click',function(){
+      fullOpen=!fullOpen;
+      full.classList.toggle('open', fullOpen);
+      openBtn.classList.toggle('open', fullOpen);
+      if(openTxt) openTxt.textContent=fullOpen?'Sakrij galeriju':'Pogledaj sve radove';
+      if(fullOpen){
+        if(heroTimer){clearInterval(heroTimer);heroTimer=null;}
+        setTimeout(function(){
+          full.scrollIntoView({behavior: reduce?'auto':'smooth', block:'nearest'});
+        }, 320);
+      } else if(!reduce && SLIKE.length>1 && !heroTimer && heroShow){
+        heroTimer=setInterval(function(){ heroShow(heroIdx+1); }, 4200);
+      }
+    });
+  }
 
   var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),
       lbx=document.getElementById('lbx'),last=null;
   function open(s){ if(!lb)return; last=document.activeElement;
-    lbi.src=s.src; lbi.alt=s.alt; lb.classList.add('on'); if(lbx)lbx.focus(); }
+    lbi.src=s.src; lbi.alt=s.alt||''; lb.classList.add('on'); if(lbx)lbx.focus(); }
   function close(){ if(!lb)return; lb.classList.remove('on'); lbi.src='';
     if(last&&last.focus)last.focus(); }
   if(lbx)lbx.addEventListener('click',close);
@@ -480,21 +596,18 @@ var SLIKE = [
   var n=document.getElementById('odKad');
   if(n){
     var to=parseInt(n.getAttribute('data-to'),10)||1999, from=to-26;
-    if(reduce){ n.textContent=to; }
-    else{
-      n.textContent=from;
-      setTimeout(function(){
-        var t0=null, dur=1150;
-        function step(t){
-          if(!t0)t0=t;
-          var p=Math.min((t-t0)/dur,1);
-          var e=1-Math.pow(1-p,3);
-          n.textContent=Math.round(from+(to-from)*e);
-          if(p<1)requestAnimationFrame(step); else n.textContent=to;
-        }
-        requestAnimationFrame(step);
-      },560);
-    }
+    n.textContent=from;
+    setTimeout(function(){
+      var t0=null, dur=1150;
+      function step(t){
+        if(!t0)t0=t;
+        var p=Math.min((t-t0)/dur,1);
+        var e=1-Math.pow(1-p,3);
+        n.textContent=Math.round(from+(to-from)*e);
+        if(p<1)requestAnimationFrame(step); else n.textContent=to;
+      }
+      requestAnimationFrame(step);
+    }, 560);
   }
 
   var wa=document.getElementById('wa');
