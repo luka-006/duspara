@@ -121,6 +121,21 @@ nav a:hover::after{transform:scaleX(1)}
 .eyebrow-sep{opacity:.45;margin:0 .15em}
 .hero h1{max-width:16ch}
 .lede{font-size:clamp(1.08rem,2.1vw,1.34rem);margin:26px 0 0;max-width:46ch;color:rgba(255,255,255,.92)}
+.lede-brick{display:inline-block;opacity:0;position:relative;
+  transform:translateY(16px) scaleY(.86);transform-origin:50% 100%;
+  animation:ledeBrick .58s cubic-bezier(.34,1.22,.48,1) forwards;
+  animation-delay:calc(.34s + var(--i,0) * .38s)}
+.lede-brick::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;
+  background:linear-gradient(90deg,var(--amber),rgba(232,163,61,.18));
+  transform:scaleX(0);transform-origin:left;
+  animation:ledeBeam .4s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay:calc(.34s + var(--i,0) * .38s + .24s)}
+@keyframes ledeBrick{
+  0%{opacity:0;transform:translateY(16px) scaleY(.86)}
+  52%{opacity:1;transform:translateY(-5px) scaleY(1.04)}
+  72%{transform:translateY(2px) scaleY(.98)}
+  100%{opacity:1;transform:translateY(0) scaleY(1)}}
+@keyframes ledeBeam{to{transform:scaleX(1)}}
 .lede .num{font-family:Archivo,sans-serif;font-weight:700;
   font-variant-numeric:tabular-nums;color:#fff}
 .hero .sub{margin:12px 0 0;max-width:46ch;color:rgba(255,255,255,.64);font-size:1rem}
@@ -143,33 +158,44 @@ nav a:hover::after{transform:scaleX(1)}
   letter-spacing:-.01em;margin-bottom:6px}
 
 /* ---------- galerija ---------- */
-.gal-wrap{position:relative;margin-top:30px;border-radius:14px;padding:clamp(12px,2vw,18px);
-  background:linear-gradient(145deg,#e4eaf4,#edf1f8 40%,#e8edf6);overflow:hidden}
-.gal-ambient{position:absolute;inset:-30%;pointer-events:none;z-index:0;
+.gal-wrap{position:relative;margin-top:30px;padding:0;background:transparent;overflow:visible}
+.gal-ambient{position:absolute;inset:-50% -20%;pointer-events:none;z-index:0;
   background:
-    radial-gradient(circle at 18% 28%,rgba(42,98,197,.38),transparent 52%),
-    radial-gradient(circle at 82% 72%,rgba(232,163,61,.28),transparent 48%),
-    radial-gradient(circle at 55% 45%,rgba(26,61,138,.18),transparent 58%);
-  filter:blur(48px);animation:ambient 14s ease-in-out infinite alternate}
-@keyframes ambient{from{transform:translate(0,0) scale(1)}to{transform:translate(4%,-3%) scale(1.1)}}
+    radial-gradient(circle at 22% 35%,rgba(42,98,197,.55),transparent 50%),
+    radial-gradient(circle at 78% 68%,rgba(232,163,61,.42),transparent 46%),
+    radial-gradient(circle at 50% 50%,rgba(26,61,138,.22),transparent 62%);
+  filter:blur(72px);opacity:.95;animation:ambient 16s ease-in-out infinite alternate}
+@keyframes ambient{from{transform:translate(0,0) scale(1)}to{transform:translate(5%,-4%) scale(1.14)}}
 .gal-show,.gal-full{position:relative;z-index:1}
 .gal-show{touch-action:pan-y pinch-zoom}
-.gal-stage{touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
-.gal-hero{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;
+.gal-stage{touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none;position:relative}
+.gal-hero-wrap{position:relative;isolation:isolate}
+.gal-glow{position:absolute;inset:-14% -10% -10%;z-index:0;pointer-events:none;overflow:hidden;
+  border-radius:20px;opacity:.78;filter:blur(44px) saturate(1.4);
+  transition:opacity .38s ease}
+.gal-glow img{width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
+.gal-hero{position:relative;z-index:1;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;
   background:#c8d4e8;cursor:grab;border:0;padding:0;display:block;
-  box-shadow:0 10px 36px rgba(14,31,69,.12);min-height:min(52vw,480px)}
+  box-shadow:none;min-height:min(52vw,480px)}
 .gal-hero.is-dragging{cursor:grabbing}
 .gal-hero img,.gal-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   opacity:0;will-change:transform,opacity;
-  transition:transform .42s cubic-bezier(.22,.61,.36,1),opacity .42s ease}
+  transition:transform .32s cubic-bezier(.22,.61,.36,1),opacity .32s ease}
 .gal-hero img.on,.gal-thumb img.on{opacity:1}
 .gal-hero img.no-transition,.gal-thumb img.no-transition{transition:none!important}
-.gal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-.gal-thumb{position:relative;aspect-ratio:16/10;border-radius:8px;overflow:hidden;
+.gal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;position:relative}
+.gal-row::before{content:"";position:absolute;inset:-28% -4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 60%,rgba(42,98,197,.28),transparent 68%);
+  filter:blur(36px)}
+.gal-thumb{position:relative;z-index:1;aspect-ratio:16/10;border-radius:8px;overflow:hidden;
   background:#c8d4e8;cursor:zoom-in;border:0;padding:0;display:block;width:100%;
-  min-height:88px;transition:transform .35s cubic-bezier(.22,.61,.36,1)}
-.gal-thumb:hover{transform:scale(1.02)}
-.gal-hero:focus,.gal-thumb:focus,.gal-hero:focus-visible,.gal-thumb:focus-visible{outline:none}
+  min-height:88px;box-shadow:none;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1),filter .35s ease}
+.gal-thumb:hover{transform:scale(1.02);filter:brightness(1.04) saturate(1.06)}
+.gal-wrap .gal-hero:focus,.gal-wrap .gal-hero:focus-visible,
+.gal-wrap .gal-thumb:focus,.gal-wrap .gal-thumb:focus-visible,
+.gal-wrap .btn--more:focus,.gal-wrap .btn--more:focus-visible,
+.gal-wrap .shot:focus,.gal-wrap .shot:focus-visible{outline:none;box-shadow:none}
 .btn--more{font-family:"Public Sans",sans-serif;font-weight:500;font-size:.76rem;
   letter-spacing:.06em;text-transform:uppercase;color:var(--navy-700);opacity:.5;
   background:none;border:none;padding:14px 0 4px;margin:0 auto;display:flex;
@@ -282,6 +308,8 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 @media(prefers-reduced-motion:reduce){
   .hero::before,.gal-ambient{animation:none}
   .rv,.up{opacity:1;transform:none;animation:none}
+  .lede-brick{opacity:1;transform:none;animation:none}
+  .lede-brick::after{display:none}
   .gal-full.open .shot{opacity:1;transform:none;animation:none}
 }
 </style>
@@ -315,7 +343,9 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
       <span class="eyebrow-b" id="eyebrowB">niskogradnja</span>
     </p>
     <h1 class="up d2">Građevinski radovi u Bakru i Primorju</h1>
-    <p class="lede up d3">Radimo od <span class="num" id="odKad" data-to="1999">1999</span>. Novogradnja, rekonstrukcije, adaptacije, betonski i zemljani radovi.</p>
+    <p class="lede lede-build" aria-label="Radimo od 1999. Novogradnja, rekonstrukcije, adaptacije, betonski i zemljani radovi.">
+      <span class="lede-brick" style="--i:0">Radimo od <span class="num" id="odKad" data-to="1999">1999</span>.</span><span class="lede-brick" style="--i:1"> Novogradnja,</span><span class="lede-brick" style="--i:2"> rekonstrukcije,</span><span class="lede-brick" style="--i:3"> adaptacije,</span><span class="lede-brick" style="--i:4"> betonski i zemljani radovi.</span>
+    </p>
     <div class="cta up d5">
       <a class="btn btn--call" href="tel:+385911198278">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
@@ -358,10 +388,13 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
       <div class="gal-ambient" aria-hidden="true"></div>
       <div class="gal-show" id="galShow">
         <div class="gal-stage" id="galStage">
-        <button class="gal-hero" id="galHero" type="button" aria-label="Povećaj fotografiju">
-          <img id="galA" src="radovi-1.jpg" alt="">
-          <img id="galB" alt="">
-        </button>
+        <div class="gal-hero-wrap">
+          <div class="gal-glow" aria-hidden="true"><img id="galGlow" src="radovi-1.jpg" alt=""></div>
+          <button class="gal-hero" id="galHero" type="button" aria-label="Povećaj fotografiju">
+            <img id="galA" src="radovi-1.jpg" alt="">
+            <img id="galB" alt="">
+          </button>
+        </div>
         <div class="gal-row" id="galRow"></div>
         </div>
         <button class="btn--more" id="galOpen" type="button">
@@ -382,7 +415,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
   <div class="spine"><span>Upit</span></div>
   <div class="wrap">
     <h2 class="rv">Pošaljite upit</h2>
-    <p class="lead rv" style="color:rgba(255,255,255,.82)">Odaberite što vas zanima i poruka se otvara u WhatsAppu, već napisana. Dopišite lokaciju i kvadraturu ako znate.</p>
+    <p class="lead rv" style="color:rgba(255,255,255,.82)">Odaberite vrstu posla i ukratko opišite zahvat. Lokacija i kvadratura olakšavaju procjenu.</p>
     <div class="form rv">
       <div class="field">
         <label for="vrsta">Što vas zanima</label>
@@ -448,7 +481,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
         Nautička 13, 51222 Bakar<br>
         <a href="tel:+385911198278">091 119 8278</a><br>
         <a href="mailto:dusparagrad@gmail.com">dusparagrad@gmail.com</a><br>
-        <span style="color:rgba(255,255,255,.6)">Radimo od 1999.</span>
+        <span style="color:rgba(255,255,255,.6)">S vama od 1999.</span>
       </address>
       <div class="rv">
         <div class="cta" style="margin-top:0">
@@ -609,9 +642,18 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
 
   var fullOpen=false;
   var previewIdx=0, heroActive=0, galA=document.getElementById('galA'), galB=document.getElementById('galB'),
+      galGlow=document.getElementById('galGlow'),
       heroBtn=document.getElementById('galHero'), galStage=document.getElementById('galStage'),
       previewTimer=null, previewPaused=false, swipeMoved=false;
   var heroLayers=galA&&galB?[galA,galB]:[];
+
+  var PREVIEW_MS=2900, PREVIEW_TRANS=320;
+
+  function syncGlow(i){
+    if(!galGlow||!SLIKE.length) return;
+    var s=SLIKE[norm(i)];
+    if(s&&galGlow.src.indexOf(s.src)===-1) galGlow.src=s.src;
+  }
 
   function pausePreview(){
     previewPaused=true;
@@ -620,7 +662,7 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
   function resumePreview(){
     previewPaused=false;
     if(!reduce&&SLIKE.length>1&&!previewTimer&&!fullOpen){
-      previewTimer=setInterval(function(){ previewSlide(1); }, 3800);
+      previewTimer=setInterval(function(){ previewSlide(1); }, PREVIEW_MS);
     }
   }
 
@@ -636,6 +678,7 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
     var incoming=1-heroActive, outgoing=heroActive;
     var inLay=heroLayers[incoming], outLay=heroLayers[outgoing];
     previewIdx=norm(previewIdx+dir);
+    syncGlow(previewIdx);
     inLay.src=SLIKE[previewIdx].src; inLay.alt=SLIKE[previewIdx].alt||'';
     inLay.classList.add('no-transition'); outLay.classList.add('no-transition');
     inLay.style.transform='translateX('+(dir*100)+'%)'; inLay.style.opacity='1';
@@ -651,8 +694,8 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
       inLay.style.transform=''; outLay.style.transform=''; outLay.style.opacity='';
       heroActive=incoming;
       updateThumbs();
-      setTimeout(resumePreview, 3200);
-    }, reduce?0:420);
+      setTimeout(resumePreview, PREVIEW_MS-PREVIEW_TRANS);
+    }, reduce?0:PREVIEW_TRANS);
   }
 
   function previewDrag(dx){
@@ -671,7 +714,7 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
 
   if(heroLayers.length){
     galA.classList.add('on');
-    previewIdx=0; updateThumbs();
+    previewIdx=0; syncGlow(0); updateThumbs();
     if(!reduce&&SLIKE.length>1) resumePreview();
     if(heroBtn) heroBtn.addEventListener('click',function(){
       if(swipeMoved) return;
@@ -684,7 +727,7 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
       if(type==='start'){ swipeMoved=false; pausePreview(); heroBtn&&heroBtn.classList.add('is-dragging'); }
       else if(type==='move') previewDrag(val);
       else if(type==='end'){ swipeMoved=true; previewDragEnd(); previewSlide(val); heroBtn&&heroBtn.classList.remove('is-dragging'); setTimeout(function(){ swipeMoved=false; },400); }
-      else { previewDragEnd(); setTimeout(resumePreview,2000); heroBtn&&heroBtn.classList.remove('is-dragging'); }
+      else { previewDragEnd(); setTimeout(resumePreview,1600); heroBtn&&heroBtn.classList.remove('is-dragging'); }
     });
   }
 
@@ -795,22 +838,25 @@ for (var ri = 1; ri <= 29; ri++) SLIKE.push({src: 'radovi-' + ri + '.jpg', alt: 
     else if(e.key==='ArrowLeft') lbSlide(-1);
   });
 
-  /* brojanje godine u "Radimo od 1999." */
+  /* brojanje godine — krene kad prvi "blok" slegne na gradilište */
   var n=document.getElementById('odKad');
   if(n){
     var to=parseInt(n.getAttribute('data-to'),10)||1999, from=to-26;
-    n.textContent=from;
-    setTimeout(function(){
-      var t0=null, dur=1150;
-      function step(t){
-        if(!t0)t0=t;
-        var p=Math.min((t-t0)/dur,1);
-        var e=1-Math.pow(1-p,3);
-        n.textContent=Math.round(from+(to-from)*e);
-        if(p<1)requestAnimationFrame(step); else n.textContent=to;
-      }
-      requestAnimationFrame(step);
-    }, 560);
+    if(reduce){ n.textContent=to; }
+    else{
+      n.textContent=from;
+      setTimeout(function(){
+        var t0=null, dur=1150;
+        function step(t){
+          if(!t0)t0=t;
+          var p=Math.min((t-t0)/dur,1);
+          var e=1-Math.pow(1-p,3);
+          n.textContent=Math.round(from+(to-from)*e);
+          if(p<1)requestAnimationFrame(step); else n.textContent=to;
+        }
+        requestAnimationFrame(step);
+      }, 520);
+    }
   }
 
   var wa=document.getElementById('wa');
